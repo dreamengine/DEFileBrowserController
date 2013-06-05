@@ -89,8 +89,6 @@
                                                                       30)];
     self.mainIconView.contentMode = UIViewContentModeScaleAspectFit;
     [self.mainContainerView addSubview:self.mainIconView];
-    
-    self.cellBackgroundColor = [UIColor whiteColor];
 }
 
 #pragma mark - Getters/Setters
