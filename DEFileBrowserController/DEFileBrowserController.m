@@ -267,6 +267,12 @@ forRowAtIndexPath: (NSIndexPath *)indexPath {
         if (self.folderSelectedBlock) {
             NSString *fullPath = [self.rootFolderPath stringByAppendingPathComponent:folderPath];
             self.folderSelectedBlock(fullPath);
+
+            NSIndexPath *selectedIndexPath = self.tableView.indexPathForSelectedRow;
+            if (selectedIndexPath) {
+                [self.tableView deselectRowAtIndexPath: selectedIndexPath
+                                              animated: YES];
+            }
         }
     }
     else {
@@ -278,6 +284,12 @@ forRowAtIndexPath: (NSIndexPath *)indexPath {
     if (self.canSelectFiles && self.fileSelectedBlock) {
         NSString *fullPath = [self.rootFolderPath stringByAppendingPathComponent:filePath];
         self.fileSelectedBlock(fullPath);
+
+        NSIndexPath *selectedIndexPath = self.tableView.indexPathForSelectedRow;
+        if (selectedIndexPath) {
+            [self.tableView deselectRowAtIndexPath: selectedIndexPath
+                                          animated: YES];
+        }
     }
 }
 
